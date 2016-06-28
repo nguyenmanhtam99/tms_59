@@ -4,4 +4,6 @@ bootstrap/compiled.php
 app/storage/
 bootstrap/cache/
 .env
-
+public/css
+public/js
+public/bower

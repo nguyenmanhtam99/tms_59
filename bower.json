@@ -1,0 +1,21 @@
+{
+  "name": "tms_59",
+  "description": "",
+  "main": "",
+  "authors": [
+    "tunglinh10a2 <linhdautung@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/tunglinh10a2/tms_59",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.6"
+  }
+}
