@@ -6,4 +6,4 @@ bootstrap/cache/
 .env
 public/css
 public/js
-public/bower
+public/fonts
