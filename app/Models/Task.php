@@ -8,9 +8,7 @@ class Task extends Model
 {
     public function users()
     {
-        return $this->belongsToMany(User::class)
-            ->withPivot('user_tasks')
-            ->withTimestamps();
+        return $this->belongsToMany(User::class, 'user_tasks');
     }
 
     public function subjects()

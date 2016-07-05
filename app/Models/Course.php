@@ -8,15 +8,11 @@ class Course extends Model
 {
     public function users()
     {
-        return $this->belongsToMany(User::class)
-            ->withPivot('user_courses')
-            ->withTimestamps();
+        return $this->belongsToMany(User::class, 'user_courses');
     }
 
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class)
-            ->withPivot('course_subjects')
-            ->withTimestamps();
+        return $this->belongsToMany(Subject::class, 'course_subjects');
     }
 }
