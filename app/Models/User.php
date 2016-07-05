@@ -37,23 +37,17 @@ class User extends Authenticatable
 
     public function courses()
     {
-        return $this->belongsToMany(Course::class)
-            ->withPivot('user_courses')
-            ->withTimestamps();
+        return $this->belongsToMany(Course::class, 'user_courses');
     }
 
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class)
-            ->withPivot('user_subjects')
-            ->withTimestamps();
+        return $this->belongsToMany(Subject::class, 'user_subjects');
     }
 
     public function tasks()
     {
-        return $this->belongsToMany(Task::class)
-            ->withPivot('user_tasks')
-            ->withTimestamps();
+        return $this->belongsToMany(Task::class, 'user_tasks');
     }
 
     public function isAdmin(){

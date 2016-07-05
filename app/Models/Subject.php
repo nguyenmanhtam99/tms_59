@@ -13,15 +13,11 @@ class Subject extends Model
 
     public function courses()
     {
-        return $this->belongsToMany(Course::class)
-            ->withPivot('course_subjects')
-            ->withTimestamps();
+        return $this->belongsToMany(Course::class, 'course_subjects');
     }
 
     public function users()
     {
-        return $this->belongsToMany(User::class)
-            ->withPivot('user_subjects')
-            ->withTimestamps();
+        return $this->belongsToMany(User::class, 'user_subjects');
     }
 }
