@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Auth;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -68,5 +70,28 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function login(Request $request)
+    {
+        /**
+         * Validate form login
+         */
+        $this->validateLogin($request);
+
+        /**
+         * Check login
+         */
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            if (Auth::user()->isAdmin()) {
+                return redirect('admin/index');
+            }
+            return redirect('user/index');
+        }
+
+        /**
+         *Return if fail to login
+         */
+        return $this->sendFailedLoginResponse($request);
     }
 }

@@ -1,11 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    /**
+     *
+     */
+    const ROLE_ADMIN = 1;
+    const ROLE_USER = 0;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -48,5 +54,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Task::class)
             ->withPivot('user_tasks')
             ->withTimestamps();
+    }
+
+    public function isAdmin(){
+        return $this->role == User::ROLE_ADMIN;
     }
 }
