@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Http\Requests\CourseRequest;
 
-class AdminController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $courses = Course::paginate(config('paginate.items_per_page'));
+        
+        return view('admin.course.index', compact('courses'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +27,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.course.create');
     }
 
     /**
@@ -35,9 +36,13 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourseRequest $request)
     {
-        //
+        $course = new Course();
+        $requestAll = $request->all();
+        $course->create($requestAll);
+
+        return redirect()->action('Admin\CourseController@index')->withSuccess(trans('session.course_create_success'));
     }
 
     /**
@@ -59,7 +64,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Course::findOrFail($id);
+
+        return view('admin.course.edit', compact('course'));
     }
 
     /**
@@ -69,9 +76,13 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CourseRequest $request, $id)
     {
-        //
+        $course = Course::findOrFail($id);
+        $requestAll = $request->all();
+        $course->update($requestAll);
+
+        return redirect()->action('Admin\CourseController@index')->withSuccess(trans('session.course_update_success'));
     }
 
     /**

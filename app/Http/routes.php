@@ -25,6 +25,7 @@ Route::group(['middleware' => 'isroleadmin'], function () {
             'as' => 'index',
             'uses' => 'AdminController@index'
         ]);
+        Route::resource('course', 'CourseController');
     });
 });
 
