@@ -6,17 +6,21 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 class UserController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
+     * Get List User
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        echo "User_index";
+        $users = User::paginate(config('paginate.items_per_page'));
+
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -41,25 +45,21 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * View Detail User
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $user = User::find($id);
+
+        if (!$user) {
+            return redirect()->action('User\UserController@index')
+                ->withErrors(['message' => trans('user.not_found')]);
+        }
+
+        return view('user.details', compact('user'));
     }
 
     /**
@@ -71,7 +71,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

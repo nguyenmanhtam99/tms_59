@@ -27,6 +27,9 @@
                         {!! Form::label('description', trans('course.description'), ['class' => 'control-label']) !!}
                         {!! Form::textarea('description', $course['description'], ['class' => 'form-control', 'rows' => '3']) !!}
 
+                        {!! Form::label('description', trans('course.description'), ['class' => 'control-label']) !!}
+                        {!! Form::textarea('description', $value = $course['description'], ['class' => 'form-control', 'rows' => '3']) !!}
+
                         <div class="block"></div>
                         
                         {!! Form::button('<i class="fa fa-edit"></i>&nbsp;' . trans('course.save_changes'), ['type' => 'submit', 'class' => 'btn btn-primary btn-md']) !!}

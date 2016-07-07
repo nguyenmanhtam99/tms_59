@@ -40,6 +40,14 @@ Route::group(['middleware' => 'auth'], function () {
             'as' => 'index',
             'uses' => 'UserController@index',
         ]);
+        Route::get('users',[
+            'as' => 'users',
+            'uses' => 'UserController@index',
+        ]);
+        Route::get('users/{user}',[
+            'as' => 'show',
+            'uses' => 'UserController@show',
+        ]);
     });
 });
 

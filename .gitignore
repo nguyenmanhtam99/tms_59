@@ -7,3 +7,5 @@ bootstrap/cache/
 public/css
 public/js
 public/fonts
+.idea
+public/image
