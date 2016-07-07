@@ -28,7 +28,7 @@
                         {!! Form::textarea('description', null, ['class' => 'form-control', 'rows' => '3']) !!}
 
                         <div class="block"></div>
-                        
+
                         {!! Form::button('<i class="fa fa-plus-circle"></i>&nbsp;' . trans('course.add'), ['type' => 'submit', 'class' => 'btn btn-primary btn-md']) !!}
                     {!! Form::close() !!}
 

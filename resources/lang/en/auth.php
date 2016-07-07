@@ -29,4 +29,5 @@ return [
     'logout' => 'Logout',
     'laravel' => 'Laravel',
     'name' => 'Name',
+    'profile' => 'Profile',
 ];

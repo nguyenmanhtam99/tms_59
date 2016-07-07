@@ -77,6 +77,7 @@ class CourseController extends Controller
             return redirect()->action('Admin\CourseController@index')
                 ->withErrors(['message' => trans('course.not_found')]);
         }
+        $course = Course::findOrFail($id);
 
         return view('admin.course.edit', compact('course'));
     }
