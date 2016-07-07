@@ -19,7 +19,7 @@ class CourseController extends Controller
         
         return view('admin.course.index', compact('courses'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -53,7 +53,14 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        //
+        $course = Course::find($id);
+
+        if (!$course) {
+            return redirect()->action('Admin\CourseController@index')
+                ->withErrors(['message' => trans('course.not_found')]);
+        }
+
+        return view('admin.course.show', compact('course'));
     }
 
     /**
@@ -64,7 +71,12 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        $course = Course::findOrFail($id);
+        $course = Course::find($id);
+
+        if (!$course) {
+            return redirect()->action('Admin\CourseController@index')
+                ->withErrors(['message' => trans('course.not_found')]);
+        }
 
         return view('admin.course.edit', compact('course'));
     }
@@ -93,6 +105,33 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $course = Course::find($id);
+
+        if (!$course) {
+            return redirect()->action('Admin\CourseController@index')
+                ->withErrors(['message' => trans('course.not_found')]);
+        }
+
+        $course->delete();
+
+        return redirect()->action('Admin\CourseController@index')->withSuccess(trans('session.course_delete_success'));
+    }
+
+    /**
+    * View details course
+    *
+    * @param int $id
+    * @return \Illuminate\Http\Response
+    */
+    public function viewSubject($id)
+    {
+        $course = Course::with('subjects')->find($id);
+
+        if (!$course) {
+            return redirect()->action('Admin\CourseController@index')
+                ->withErrors(['message' => trans('course.not_found')]);
+        }
+
+        return view('admin.course.viewSubject', compact('course'));
     }
 }

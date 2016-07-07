@@ -22,10 +22,10 @@
 
                     {!! Form::model($course, ['method' => 'PUT', 'route' => ['admin.course.update', $course['id']], 'class' => 'form-horizontal']) !!}
                         {!! Form::label('name', trans('course.name'), ['class' => 'control-label']) !!}
-                        {!! Form::text('name', $value = $course['name'], ['class' => 'form-control', 'autofocus']) !!}
+                        {!! Form::text('name', $course['name'], ['class' => 'form-control', 'autofocus']) !!}
 
                         {!! Form::label('description', trans('course.description'), ['class' => 'control-label']) !!}
-                        {!! Form::textarea('description', $value = $course['description'], ['class' => 'form-control', 'rows' => '3']) !!}
+                        {!! Form::textarea('description', $course['description'], ['class' => 'form-control', 'rows' => '3']) !!}
 
                         <div class="block"></div>
                         
