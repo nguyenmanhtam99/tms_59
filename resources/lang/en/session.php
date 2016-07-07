@@ -11,4 +11,5 @@ return [
     'update_password_success' => 'Your Password have been changed!',
     'course_create_success' => 'Course is created',
     'course_update_success' => 'Course is updated',
+    'course_delete_success' => 'Course is deleted',
 ];

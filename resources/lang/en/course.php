@@ -26,4 +26,7 @@ return [
     'save_changes' => 'Save Changes',
     'title_edit' => 'Edit Course Form',
     'delete' => 'Delete',
+    'view_subjects' => 'View Subjects In Course',
+    'view_trainees' => 'View Trainees In Course',
+    'not_found' => 'Course is not found',
 ];

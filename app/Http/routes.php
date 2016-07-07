@@ -23,9 +23,14 @@ Route::group(['middleware' => 'isroleadmin'], function () {
     Route::group(['prefix' => 'admin','namespace' => 'Admin'],function () {
         Route::get('index',[
             'as' => 'index',
-            'uses' => 'AdminController@index'
+            'uses' => 'AdminController@index',
         ]);
         Route::resource('course', 'CourseController');
+        Route::resource('subject', 'SubjectController');
+        Route::get('course/{id}/subjects', [
+            'as' => 'course.subject',
+            'uses' => 'CourseController@viewSubject',
+            ]);
     });
 });
 
@@ -33,7 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'user','namespace' => 'User'], function () {
         Route::get('index',[
             'as' => 'index',
-            'uses' => 'UserController@index'
+            'uses' => 'UserController@index',
         ]);
     });
 });
+
