@@ -33,4 +33,9 @@ return [
         'admin' => 'Role Admin',
         'user' => 'Role User',
     ],
+    'edit_profile' => 'Edit Profile',
+    'title_edit' => 'Edit Profile Form',
+    'profile' => 'Profile',
+    'save_changes' => 'Save Changes',
+    'edit_user' => 'Edit',
 ];

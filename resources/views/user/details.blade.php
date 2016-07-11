@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('index')
 
 @section('content')
     <div class="container">
@@ -19,7 +19,7 @@
                             <div class="dataTable_wrapper">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <tr>
-                                        <td>{!! Html::image('/image/'.$value = $user->avatar , null , ['class'=> 'img-responsive', 'id' => 'image']) !!}</td>
+                                        <td>{!! Html::image($user->avatar(), null, ['class'=> 'img-responsive img']) !!}</td>
                                     </tr>
                                     <tr>
                                         <td>{{ trans('user.name') }}:</td>

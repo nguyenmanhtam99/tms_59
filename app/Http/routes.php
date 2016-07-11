@@ -39,19 +39,8 @@ Route::group(['middleware' => 'isroleadmin'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['prefix' => 'user','namespace' => 'User'], function () {
-        Route::get('index',[
-            'as' => 'index',
-            'uses' => 'UserController@index',
-        ]);
-        Route::get('users',[
-            'as' => 'users',
-            'uses' => 'UserController@index',
-        ]);
-        Route::get('users/{user}',[
-            'as' => 'show',
-            'uses' => 'UserController@show',
-        ]);
+    Route::group(['namespace' => 'User'], function () {
+        Route::resource('user', 'UserController');
     });
 });
 

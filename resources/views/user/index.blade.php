@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('index')
 
 @section('title')
     {{ trans('user.user_manager') }}
@@ -18,7 +18,6 @@
                         <div class="panel-heading">
                             <h3 class="panel-title"> {{ trans('user.list') }} </h3>
                         </div>
-                        <!-- /.panel-heading -->
                         <div class="panel-body">
 
                             @include('layouts.partials.error')
@@ -31,7 +30,6 @@
                                         <th>{{ trans('user.user_name') }}</th>
                                         <th>{{ trans('user.role') }}</th>
                                         <th>&nbsp;</th>
-                                        <!-- <th>&nbsp;</th> -->
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -46,7 +44,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{!! route('show',['user' => $user->id]) !!}">
+                                                <a href="{!! route('user.show', [$user->id]) !!}">
                                                     {{ trans('user.view_details') }} </a>
                                             </td>
                                         </tr>
