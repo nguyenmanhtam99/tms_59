@@ -77,4 +77,7 @@ class User extends Authenticatable
 
         return $results;
     }
+    public function avatar(){
+        return config('user.path_to_avatar') . $this->avatar;
+    }
 }
