@@ -6,11 +6,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    /**
-     *
-     */
-    const ROLE_ADMIN = 1;
-    const ROLE_USER = 0;
 
     /**
      * The attributes that are mass assignable.
@@ -50,7 +45,36 @@ class User extends Authenticatable
         return $this->belongsToMany(Task::class, 'user_tasks');
     }
 
-    public function isAdmin(){
-        return $this->role == User::ROLE_ADMIN;
+    /**
+     * [isAdmin description]
+     * @return boolean [description]
+     */
+    public function isAdmin()
+    {
+        return $this->role == config('user.roles.admin');
+    }
+
+    /**
+     * [isUser description]
+     * @return boolean [description]
+     */
+    public function isUser()
+    {
+        return $this->role == config('user.roles.user');
+    }
+
+    /**
+     * [getRoleOptions description]
+     * @return [type] [description]
+     */
+    public static function getRoleOptions()
+    {
+        $results = [];
+
+        foreach (config('user.roles') as $key => $value) {
+            $results[$value] = trans('user.role_type.' . $key) ;
+        }
+
+        return $results;
     }
 }

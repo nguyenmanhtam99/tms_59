@@ -12,4 +12,11 @@ return [
     'course_create_success' => 'Course is created',
     'course_update_success' => 'Course is updated',
     'course_delete_success' => 'Course is deleted',
+    /**
+     * Flash messages trainee
+     */
+    'trainee_create_success' => 'Trainee has created',
+    'trainee_update_success' => 'Trainee has updated',
+    'trainee_update_admin' => 'Trainee has updated to admin',
+    'trainee_delete' => 'Trainee has deleted',
 ];
