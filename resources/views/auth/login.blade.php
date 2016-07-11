@@ -9,7 +9,7 @@
                 <div class="panel-body">
 
                     {!! Form::open(array('url' => '/login','method' => 'post','class' => 'form-horizontal')) !!}
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                             {!! Form::label('email', trans('auth.email'), array('class' => 'col-md-4 control-label')) !!}
 
                             <div class="col-md-6">
@@ -23,7 +23,7 @@
                             </div>
                         </div>
 
-                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                         <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
                             {!! Form::label('password', trans('auth.pass'), array('class' => 'col-md-4 control-label')) !!}
                             <div class="col-md-6">
 

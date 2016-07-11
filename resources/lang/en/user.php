@@ -29,4 +29,8 @@ return [
     'user' => 'User',
     'user_manager' => 'User Manager',
     'not_found' => 'Not Found',
+    'role_type' => [
+        'admin' => 'Role Admin',
+        'user' => 'Role User',
+    ],
 ];

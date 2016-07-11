@@ -31,6 +31,10 @@ Route::group(['middleware' => 'isroleadmin'], function () {
             'as' => 'course.subject',
             'uses' => 'CourseController@viewSubject',
             ]);
+        /**
+         * Trainee
+         */
+        Route::resource('trainee','TraineeController');
     });
 });
 
