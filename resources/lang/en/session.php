@@ -19,4 +19,9 @@ return [
     'trainee_update_success' => 'Trainee has updated',
     'trainee_update_admin' => 'Trainee has updated to admin',
     'trainee_delete' => 'Trainee has deleted',
+    /**
+     * Flash messages User
+     */
+    'user_update_success' => 'User has updated',
+    'user_create_report' => 'User has create Report Success',
 ];

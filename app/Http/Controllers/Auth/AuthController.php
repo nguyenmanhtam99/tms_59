@@ -86,7 +86,7 @@ class AuthController extends Controller
             if (Auth::user()->isAdmin()) {
                 return redirect('admin/index');
             }
-            return redirect('user/index');
+            return redirect('home');
         }
 
         /**

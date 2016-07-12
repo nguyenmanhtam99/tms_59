@@ -38,4 +38,11 @@ return [
     'profile' => 'Profile',
     'save_changes' => 'Save Changes',
     'edit_user' => 'Edit',
+    'report' => 'Report',
+    'read_report' => 'Write Report',
+    'form_report' => 'Form Report',
+    'summit' => 'Summit',
+    'problem' => 'Problem',
+    'next_plan' => 'Next Plan',
+    'achivement' => 'Achivement',
 ];

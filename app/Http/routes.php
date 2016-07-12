@@ -41,6 +41,15 @@ Route::group(['middleware' => 'isroleadmin'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['namespace' => 'User'], function () {
         Route::resource('user', 'UserController');
+        Route::get('user/{id}/report', [
+            'as' => 'report',
+            'uses' => 'UserController@report',
+        ]);
+        Route::post('user/{id}/storeReport', [
+            'as' => 'storeReport',
+            'uses' => 'UserController@storeReport',
+        ]);
     });
+
 });
 
