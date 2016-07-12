@@ -9,4 +9,3 @@ $('#checkAll').click(function(e) {
  * Show success message in time
  */
 $('.success_show').hide(5000);
-

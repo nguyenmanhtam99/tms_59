@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Report;
+use App\Http\Requests\StoreReportRequest;
 
 class UserController extends Controller
 {
@@ -112,5 +114,33 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Call come form view Report
+     */
+    public function report()
+    {
+        return view('user.report');
+    }
+
+    /**
+     * Create Report
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function storeReport(StoreReportRequest $request, $id)
+    {
+        $report = new Report();
+
+        $report->user_id = $id;
+        $report->achivement = $request->achivement;
+        $report->next_plan = $request->next_plan;
+        $report->problem = $request->problem;
+        $requestAll = $request->all();
+        $report->save($requestAll);
+
+        return redirect()->action('User\UserController@index')->withSuccess(trans('session.user_create_report'));
     }
 }
