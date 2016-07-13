@@ -16,7 +16,7 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $subjects = Subject::paginate(config('paginate.items_per_page'));
+        $subjects = Subject::all();
         
         return view('admin.subject.index', compact('subjects'));
     }
@@ -37,7 +37,7 @@ class SubjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SubjectRequest $request)
     {
         $subject = new Subject();
         $requestAll = $request->all();
@@ -89,9 +89,15 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SubjectRequest $request, $id)
     {
-        $subject = Subject::findOrFail($id);
+        $subject = Subject::find($id);
+
+        if (!$subject) {
+            return redirect()->action('Admin\SubjectController@index')
+                ->withErrors(['message' => trans('subject.not_found')]);
+        }
+
         $requestAll = $request->all();
         $subject->update($requestAll);
 

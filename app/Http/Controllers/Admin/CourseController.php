@@ -15,7 +15,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::paginate(config('paginate.items_per_page'));
+        $courses = Course::all();
 
         return view('admin.course.index', compact('courses'));
     }
@@ -90,7 +90,13 @@ class CourseController extends Controller
      */
     public function update(CourseRequest $request, $id)
     {
-        $course = Course::findOrFail($id);
+        $course = Course::find($id);
+
+        if (!$course) {
+            return redirect()->action('Admin\CourseController@index')
+                ->withErrors(['message' => trans('course.not_found')]);
+        }
+
         $requestAll = $request->all();
         $course->update($requestAll);
 

@@ -27,4 +27,5 @@ return [
     'title_edit' => 'Edit Subject Form',
     'delete' => 'Delete',
     'not_found' => 'Subject is not found',
+    'view_tasks' => 'View Tasks',
 ];

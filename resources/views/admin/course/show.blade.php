@@ -42,7 +42,7 @@
                                     </tbody>
                                 </table>
                                 {!! Form::open(['method' => 'GET', 'route'=> ['course.subject', $course['id']]]) !!}
-                                        {!! Form::submit(trans('course.view_subjects'), ['class' =>'btn btn-success']) !!}
+                                        {!! Form::submit(trans('course.view_subjects'), ['class' => 'btn btn-success']) !!}
                                 {!! Form::close() !!}
                             </div>
                         </div>

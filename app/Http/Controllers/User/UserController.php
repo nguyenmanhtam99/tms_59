@@ -102,7 +102,7 @@ class UserController extends Controller
         $requestAll = $request->all();
         $user->update($requestAll);
 
-        return redirect()->action('User\UserController@index')->withSuccess(trans('session.course_update_success'));
+        return redirect()->action('User\UserController@index')->withSuccess(trans('session.user_update_success'));
     }
 
     /**

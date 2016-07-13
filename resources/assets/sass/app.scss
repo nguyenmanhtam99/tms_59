@@ -1,5 +1,6 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "node_modules/font-awesome/scss/font-awesome";
+@import "node_modules/datatables.net-dt/css/jquery.dataTables";
 
 body
 {
@@ -28,4 +29,7 @@ body
 .img {
     width: 200px;
     height: 200px;
+}
+form {
+    padding: 0 15px;
 }
