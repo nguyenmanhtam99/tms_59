@@ -8,12 +8,6 @@
     <div class="container">
         <section>
             <div class="row page-title-row">
-                <div class="col-md-8"></div>
-                <div class="input-group col-md-4">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <span class="input-group-addon"> {{ trans('trainee.search') }} </span>
-                </div>
-                <br>
                 <div class="col-md-6">
                     <h3> {{ trans('trainee.trainee') }} <small>&raquo; {{ trans('trainee.listing') }} </small></h3>
                 </div>
@@ -32,7 +26,7 @@
                             @include('layouts.partials.success')
                             @include('layouts.partials.error')
                             <div class="dataTable_wrapper">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables">
                                     <thead>
                                         <tr>
                                             <th><input type="checkbox" id="checkAll"></th>
@@ -70,14 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                </div>
-                <div class="col-lg-8">
-                    {!! $users->render() !!}
-                </div>
             </div>
         </section>
     </div>
-</div>
 @stop
-

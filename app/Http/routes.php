@@ -35,6 +35,7 @@ Route::group(['middleware' => 'isroleadmin'], function () {
          * Trainee
          */
         Route::resource('trainee','TraineeController');
+        Route::resource('subject/{id}/tasks', 'TaskController');
     });
 });
 

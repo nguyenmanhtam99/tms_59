@@ -24,4 +24,16 @@ return [
      */
     'user_update_success' => 'User has updated',
     'user_create_report' => 'User has create Report Success',
+    /**
+    * Flash messages subject
+    */
+    'subject_create_success' => 'Subject is created',
+    'subject_update_success' => 'Subject is updated',
+    'subject_delete_success' => 'Subject is deleted',
+    /**
+    * Flash messages subject
+    */
+    'task_create_success' => 'Task is created',
+    'task_update_success' => 'Task is updated',
+    'task_delete_success' => 'Task is deleted',
 ];

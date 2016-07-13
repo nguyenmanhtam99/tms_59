@@ -21,15 +21,19 @@
                     @include('layouts.partials.success')
 
                     {!! Form::model($course, ['method' => 'PUT', 'route' => ['admin.course.update', $course['id']], 'class' => 'form-horizontal']) !!}
-                        {!! Form::label('name', trans('course.name'), ['class' => 'control-label']) !!}
-                        {!! Form::text('name', $course['name'], ['class' => 'form-control', 'autofocus']) !!}
+                        <div class="form-group">
+                            {!! Form::label('name', trans('course.name'), ['class' => 'control-label']) !!}
+                            {!! Form::text('name', $course['name'], ['class' => 'form-control', 'autofocus']) !!}
+                        </div>
 
-                        {!! Form::label('description', trans('course.description'), ['class' => 'control-label']) !!}
-                        {!! Form::textarea('description', $course['description'], ['class' => 'form-control', 'rows' => '3']) !!}
+                        <div class="form-group"> 
+                            {!! Form::label('description', trans('course.description'), ['class' => 'control-label']) !!}
+                            {!! Form::textarea('description', $course['description'], ['class' => 'form-control', 'rows' => '3']) !!}
+                        </div>
 
-                        <div class="block"></div>
-
-                        {!! Form::button('<i class="fa fa-edit"></i>&nbsp;' . trans('course.save_changes'), ['type' => 'submit', 'class' => 'btn btn-primary btn-md']) !!}
+                        <div class="form-group">
+                            {!! Form::button('<i class="fa fa-edit"></i>&nbsp;' . trans('course.save_changes'), ['type' => 'submit', 'class' => 'btn btn-primary btn-md']) !!}
+                        </div>
                     {!! Form::close() !!}
 
                 </div>

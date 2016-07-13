@@ -18,7 +18,7 @@ class TraineeController extends Controller
      */
     public function index()
     {
-        $users = User::where('role', config('user.roles.user'))->paginate(config('paginate.items_per_page'));
+        $users = User::where('role', config('user.roles.user'))->get();
 
         return view('admin.trainee.index', ['users' => $users]);
     }

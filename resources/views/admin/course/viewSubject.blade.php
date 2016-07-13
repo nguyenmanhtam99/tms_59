@@ -35,7 +35,7 @@
                                         @foreach ($course->subjects as $subject)
                                             <tr>
                                                 <td>{{ $subject->id }}</td>
-                                                <td>{{ $subject->name}}</td>
+                                                <td>{{ $subject->name }}</td>
                                                 <td>{{ $subject->description }}</td>
                                                 <td>{{ $subject->created_at }}</td>
                                                 <td>{{ $subject->updated_at }}</td>
