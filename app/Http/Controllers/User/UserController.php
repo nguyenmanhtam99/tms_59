@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Report;
 use App\Http\Requests\StoreReportRequest;
+use App\Http\Requests\EditProfileRequest;
 
 class UserController extends Controller
 {
@@ -88,7 +89,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditProfileRequest $request, $id)
     {
         $user = User::findOrFail($id);
 
@@ -99,10 +100,12 @@ class UserController extends Controller
             $user->avatar = $filename;
         }
 
+        $user->name = $request->name;
+        $user->information = $request->information;
         $requestAll = $request->all();
-        $user->update($requestAll);
+        $user->save($requestAll);
 
-        return redirect()->action('User\UserController@index')->withSuccess(trans('session.user_update_success'));
+        return redirect('home')->withSuccess(trans('session.user_update_success'));
     }
 
     /**
@@ -142,5 +145,23 @@ class UserController extends Controller
         $report->save($requestAll);
 
         return redirect()->action('User\UserController@index')->withSuccess(trans('session.user_create_report'));
+    }
+
+    /**
+     * View History Course for User
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function historyCourse($id)
+    {
+        $user = User::with('subjects', 'courses')->find($id);
+
+        if (!$user) {
+            return redirect()->action('User\CourseController@index')
+                ->withErrors(['message' => trans('course.not_found')]);
+        }
+
+        return view('user.historyCourse', compact('user'));
     }
 }

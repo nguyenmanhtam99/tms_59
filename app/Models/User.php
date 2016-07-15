@@ -32,12 +32,12 @@ class User extends Authenticatable
 
     public function courses()
     {
-        return $this->belongsToMany(Course::class, 'user_courses');
+        return $this->belongsToMany(Course::class, 'user_courses')->withPivot('status', 'started_date', 'ended_date');
     }
 
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class, 'user_subjects');
+        return $this->belongsToMany(Subject::class, 'user_subjects')->withPivot('status', 'started_date', 'ended_date');
     }
 
     public function tasks()
@@ -77,6 +77,7 @@ class User extends Authenticatable
 
         return $results;
     }
+
     public function avatar(){
         return config('user.path_to_avatar') . $this->avatar;
     }

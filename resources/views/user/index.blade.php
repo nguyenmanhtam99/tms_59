@@ -20,9 +20,6 @@
                         </div>
                         <div class="panel-body">
 
-                            @include('layouts.partials.error')
-                            @include('layouts.partials.success')
-
                             <div class="dataTable_wrapper">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>

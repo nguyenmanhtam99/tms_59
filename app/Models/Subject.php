@@ -20,6 +20,6 @@ class Subject extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_subjects');
+        return $this->belongsToMany(User::class, 'user_subjects')->withPivot('status', 'started_date', 'ended_date');
     }
 }
